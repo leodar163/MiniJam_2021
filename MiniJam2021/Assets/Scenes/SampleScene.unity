@@ -487,7 +487,7 @@ MonoBehaviour:
   chronoUpdate:
     m_PersistentCalls:
       m_Calls: []
-  refreshRate: 0.5
+  refreshRate: 0.05
 --- !u!4 &301633341
 Transform:
   m_ObjectHideFlags: 0
@@ -2160,12 +2160,12 @@ MonoBehaviour:
   elecProd: 30
   elecExpect: 30.5
   flotte: 0
-  flotteRatio: 0.5
+  flotteRatio: 0.1
   maxRessource: 100
   minRessource: 0
   maxBaril: 6
-  uraniumRatio: 0.001
-  temperatureRatio: 0.01
+  uraniumRatio: 0.0002
+  temperatureRatio: 0.001
   seuilFlotte: 5
   ratioFlotteTemperature: 1
   powerDifference: 5

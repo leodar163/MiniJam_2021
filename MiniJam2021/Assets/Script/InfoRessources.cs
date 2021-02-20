@@ -84,7 +84,7 @@ public class InfoRessources : MonoBehaviour
 
     private void UpdateRessources()
     {
-        flotte = flotte + flotteRatio >= maxRessource ? maxRessource : flotte + flotteRatio;
+        flotte = flotte + flotteRatio >= maxRessource ? maxRessource : flotte + flotteRatio ;
         
         float uraniumToRemove = uranium - uraniumRatio * elecProd >= minRessource ? uraniumRatio * elecProd : uranium;
 
