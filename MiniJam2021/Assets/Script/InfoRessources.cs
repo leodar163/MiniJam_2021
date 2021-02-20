@@ -110,7 +110,6 @@ public class InfoRessources : MonoBehaviour
         if (amount > 0) dechet = dechet - amount < minRessource ? minRessource : dechet - amount;
     }
 
-<<<<<<< Updated upstream
     public void DecreaseTemperature(float amount)
     {
         if (amount > 0) temperature = temperature - seuilFlotte * ratioFlotteTemperature >= seuilFlotte ?
@@ -154,6 +153,4 @@ public class InfoRessources : MonoBehaviour
     {
         LessPower(powerDifference);
     }
-=======
->>>>>>> Stashed changes
 }

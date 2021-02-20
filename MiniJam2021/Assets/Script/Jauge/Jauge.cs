@@ -28,7 +28,6 @@ public abstract class Jauge : MonoBehaviour
 
     private void UpdateGauge(float max, float amount)
     {
-        print("jauge updated");
         slider.value = amount / max;
     }
 
