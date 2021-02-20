@@ -33,10 +33,11 @@ public class Controls : MonoBehaviour
 
     private void CheckControls()
     {
-        if(Input.GetKey(pauseCafe))
+        if(Input.GetKeyUp(pauseCafe))
         {
-            if (isPaused) Time.timeScale = 1;
-            else Time.timeScale = 0;
+            print("ouichef, isPaused = " + isPaused);
+            if (isPaused) {Time.timeScale = 1; isPaused = false;}
+            else {Time.timeScale = 0; isPaused = true;}
         }
 
         if (Input.GetKeyUp(appelerCamionUranium))

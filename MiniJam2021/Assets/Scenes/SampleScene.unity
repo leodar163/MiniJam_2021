@@ -465,7 +465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   truckManager: {fileID: 2147027548}
-  pauseCafe: 27
+  pauseCafe: 32
   appelerCamionUranium: 112
   appelerCamionPoubelle: 98
   getFreshWater: 264
