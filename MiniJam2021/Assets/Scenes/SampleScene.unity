@@ -330,6 +330,14 @@ MonoBehaviour:
   elecProd: 0
   elecExpect: 0
   flotte: 0
+  flotteRatio: 0.5
+  maxRessource: 100
+  minRessource: 0
+  maxBaril: 6
+  uraniumRatio: 0.1
+  barilDepleted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1818926378
 Transform:
   m_ObjectHideFlags: 0
