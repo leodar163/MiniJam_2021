@@ -73,12 +73,16 @@ public class Controls : MonoBehaviour
 
         if (Input.GetKeyUp(increasePower))
         {
+<<<<<<< Updated upstream
             InfoRessources.Instance.MonterPuissance();
         }
 
         if (Input.GetKeyUp(decreasePower))
         {
             InfoRessources.Instance.BaisserPuissance();
+=======
+            
+>>>>>>> Stashed changes
         }
     }
 }
