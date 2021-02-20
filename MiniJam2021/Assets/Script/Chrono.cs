@@ -32,7 +32,6 @@ public class Chrono : MonoBehaviour
         {
             chronoUpdate.Invoke();
             yield return new WaitForSeconds(refresh);
-            print("coroutine is alive :o");
         }
     }
 }

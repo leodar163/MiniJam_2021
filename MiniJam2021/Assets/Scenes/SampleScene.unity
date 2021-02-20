@@ -385,6 +385,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseCafe: 27
+  appelerCamionUranium: 0
+  appelerCamionPoubelle: 0
+  getFreshWater: 264
+  isPaused: 0
 --- !u!4 &2076235194
 Transform:
   m_ObjectHideFlags: 0

@@ -5,6 +5,11 @@ using UnityEngine;
 public class Controls : MonoBehaviour
 {
     [SerializeField] private KeyCode pauseCafe;
+    [SerializeField] private KeyCode appelerCamionUranium;
+    [SerializeField] private KeyCode appelerCamionPoubelle;
+    [SerializeField] private KeyCode getFreshWater;
+    
+    public bool isPaused = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +30,22 @@ public class Controls : MonoBehaviour
     private void CheckControls()
     {
         if(Input.GetKey(pauseCafe))
+        {
+            if (isPaused) Time.timeScale = 1;
+            else Time.timeScale = 0;
+        }
+
+        if (Input.GetKey(appelerCamionUranium))
+        {
+
+        }
+
+        if (Input.GetKey(appelerCamionPoubelle))
+        {
+
+        }
+
+        if (Input.GetKey(getFreshWater))
         {
 
         }
