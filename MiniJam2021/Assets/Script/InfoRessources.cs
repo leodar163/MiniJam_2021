@@ -48,6 +48,8 @@ public class InfoRessources : MonoBehaviour
     public float maxBaril = 6f;
     public float uraniumRatio = 0.1f;
     public float temperatureRatio = 1f;
+    public float seuilFlotte = 5f;
+    public float ratioFlotteTemperature = 1f;
 
     [Header("Events")]
     public UnityEvent barilDepleted = new UnityEvent();
@@ -93,6 +95,7 @@ public class InfoRessources : MonoBehaviour
             usedUranium -= 1;
             barilDepleted.Invoke();
         }
+        
         temperatureRise.Invoke();
     }
 
@@ -104,5 +107,29 @@ public class InfoRessources : MonoBehaviour
     public void RemoveTrash(float amount)
     {
         if (amount > 0) dechet = dechet - amount < minRessource ? minRessource : dechet - amount;
+    }
+
+    public void DecreaseTemperature(float amount)
+    {
+        if (amount > 0) temperature = temperature - seuilFlotte * ratioFlotteTemperature >= seuilFlotte ?
+                temperature - seuilFlotte * ratioFlotteTemperature : minRessource;
+    }
+
+    public void RefroidirLiquidement()
+    {
+        if (seuilFlotte > 0 && flotte > 0)
+        {
+            if (flotte >= seuilFlotte)
+            {
+                flotte -= seuilFlotte;
+                DecreaseTemperature(seuilFlotte);
+            }
+
+            else if (flotte < seuilFlotte)
+            {
+                DecreaseTemperature(flotte);
+                flotte = minRessource;
+            }
+        }
     }
 }

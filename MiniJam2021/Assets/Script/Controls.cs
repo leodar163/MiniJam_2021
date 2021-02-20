@@ -63,9 +63,9 @@ public class Controls : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(getFreshWater))
+        if (Input.GetKeyUp(getFreshWater))
         {
-
+            InfoRessources.Instance.RefroidirLiquidement();
         }
     }
 }
