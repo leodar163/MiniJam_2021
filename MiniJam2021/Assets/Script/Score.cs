@@ -2,12 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jauge : MonoBehaviour
+public class Score : MonoBehaviour
 {
-    private InfoRessources infoRes = InfoRessources.Instance;
-
-    public float truc = 1;
-
     // Start is called before the first frame update
     void Start()
     {
