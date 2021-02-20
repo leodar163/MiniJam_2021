@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Controls : MonoBehaviour
 {
+    [Header("refs")]
+    [SerializeField] private TruckManager truckManager;
+    [Space(20)]
     [SerializeField] private KeyCode pauseCafe;
     [SerializeField] private KeyCode appelerCamionUranium;
     [SerializeField] private KeyCode appelerCamionPoubelle;
@@ -14,18 +17,17 @@ public class Controls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Chrono.Instance.chronoUpdate.AddListener(() =>
-        {
-            CheckControls();
-        });
+        //Chrono.Instance.chronoUpdate.AddListener(() =>
+        //{
+        //    CheckControls();
+        //});
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        CheckControls();
     }
-
 
     private void CheckControls()
     {
@@ -35,14 +37,30 @@ public class Controls : MonoBehaviour
             else Time.timeScale = 0;
         }
 
-        if (Input.GetKey(appelerCamionUranium))
+        if (Input.GetKeyUp(appelerCamionUranium))
         {
-
+            if (truckManager.truckstate == TruckManager.TruckState.waiting)
+            {
+                truckManager.SendTruckToParking();
+            }
+            else if (truckManager.truckstate == TruckManager.TruckState.notHere)
+            {
+                print("appeler un camion");
+                truckManager.orderUraniumTruck();
+            }
         }
 
-        if (Input.GetKey(appelerCamionPoubelle))
+        if (Input.GetKeyUp(appelerCamionPoubelle))
         {
-
+            if (truckManager.truckstate == TruckManager.TruckState.waiting)
+            {
+                truckManager.SendTruckToParking();
+            }
+            else if (truckManager.truckstate == TruckManager.TruckState.notHere)
+            {
+                print("appeler un camion");
+                truckManager.orderTrashTruck();
+            }
         }
 
         if (Input.GetKey(getFreshWater))

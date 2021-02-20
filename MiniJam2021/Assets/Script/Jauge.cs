@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jauge : MonoBehaviour
+public abstract class Jauge : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

@@ -77,15 +77,32 @@ public class InfoRessources : MonoBehaviour
         
     }
 
+    private float usedUranium = 0;
+
     private void UpdateRessources()
     {
         flotte = flotte + flotteRatio >= maxRessource ? maxRessource : flotte + flotteRatio;
-        float previousUranium = uranium;
-        uranium = uranium - uraniumRatio * elecProd > minRessource ? uranium - uraniumRatio * elecProd : minRessource;
-        if (Mathf.Floor(uranium)< Mathf.Floor(previousUranium))
+        
+        float uraniumToRemove = uranium - uraniumRatio * elecProd >= minRessource ? uraniumRatio * elecProd : uranium;
+
+        uranium -= uraniumToRemove;
+        usedUranium += uraniumToRemove;
+
+        if (usedUranium - 1 >= 0 )
         {
+            usedUranium -= 1;
             barilDepleted.Invoke();
         }
         temperatureRise.Invoke();
+    }
+
+    public void AddUranium(float amount)
+    {
+        if (amount > 0) uranium = uranium + amount > maxBaril ? maxBaril : uranium + amount;
+    }
+
+    public void RemoveTrash(float amount)
+    {
+        if (amount > 0) dechet = dechet - amount < minRessource ? minRessource : dechet - amount;
     }
 }

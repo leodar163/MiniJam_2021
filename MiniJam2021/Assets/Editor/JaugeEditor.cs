@@ -13,6 +13,7 @@ public class JaugeEditor : Editor
 
         GUILayout.Label("coucou");
         GUILayout.Space(20);
+
         base.OnInspectorGUI();
 
         if (GUILayout.Button("générer mappe"))
