@@ -11,7 +11,9 @@ public class Controls : MonoBehaviour
     [SerializeField] private KeyCode appelerCamionUranium;
     [SerializeField] private KeyCode appelerCamionPoubelle;
     [SerializeField] private KeyCode getFreshWater;
-    
+    [SerializeField] private KeyCode increasePower;
+    [SerializeField] private KeyCode decreasePower;
+
     public bool isPaused = false;
 
     // Start is called before the first frame update
@@ -66,6 +68,16 @@ public class Controls : MonoBehaviour
         if (Input.GetKeyUp(getFreshWater))
         {
             InfoRessources.Instance.RefroidirLiquidement();
+        }
+
+        if (Input.GetKeyUp(increasePower))
+        {
+            InfoRessources.Instance.MonterPuissance();
+        }
+
+        if (Input.GetKeyUp(decreasePower))
+        {
+            InfoRessources.Instance.BaisserPuissance();
         }
     }
 }

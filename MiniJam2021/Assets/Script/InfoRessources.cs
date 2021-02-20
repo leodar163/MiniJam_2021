@@ -50,6 +50,7 @@ public class InfoRessources : MonoBehaviour
     public float temperatureRatio = 1f;
     public float seuilFlotte = 5f;
     public float ratioFlotteTemperature = 1f;
+    public float powerDifference = 5f;
 
     [Header("Events")]
     public UnityEvent barilDepleted = new UnityEvent();
@@ -115,6 +116,16 @@ public class InfoRessources : MonoBehaviour
                 temperature - seuilFlotte * ratioFlotteTemperature : minRessource;
     }
 
+    public void MoarPower(float amount)
+    {
+        if (amount > 0) elecProd = elecProd + amount < maxRessource ? elecProd + amount : maxRessource;
+    }
+
+    public void LessPower(float amount)
+    {
+        if (amount > 0) elecProd = elecProd - amount > minRessource ? elecProd - amount : minRessource;
+    }
+
     public void RefroidirLiquidement()
     {
         if (seuilFlotte > 0 && flotte > 0)
@@ -131,5 +142,15 @@ public class InfoRessources : MonoBehaviour
                 flotte = minRessource;
             }
         }
+    }
+
+    public void MonterPuissance()
+    {
+        MoarPower(powerDifference);
+    }
+
+    public void BaisserPuissance()
+    {
+        LessPower(powerDifference);
     }
 }

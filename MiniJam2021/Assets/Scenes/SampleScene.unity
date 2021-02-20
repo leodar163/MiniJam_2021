@@ -403,7 +403,7 @@ MonoBehaviour:
   dechet: 0
   uranium: 6
   temperature: 0
-  elecProd: 31.2
+  elecProd: 30
   elecExpect: 0
   flotte: 0
   flotteRatio: 0.5
@@ -412,6 +412,9 @@ MonoBehaviour:
   maxBaril: 6
   uraniumRatio: 0.001
   temperatureRatio: 0.01
+  seuilFlotte: 5
+  ratioFlotteTemperature: 1
+  powerDifference: 5
   barilDepleted:
     m_PersistentCalls:
       m_Calls: []
@@ -466,6 +469,8 @@ MonoBehaviour:
   appelerCamionUranium: 112
   appelerCamionPoubelle: 98
   getFreshWater: 264
+  increasePower: 97
+  decreasePower: 120
   isPaused: 0
 --- !u!4 &2076235194
 Transform:
