@@ -11,7 +11,7 @@ public class Chrono : MonoBehaviour
     {
         get
         {
-            if (cela) cela = FindObjectOfType<Chrono>();
+            if (!cela) cela = FindObjectOfType<Chrono>();
             return cela;
         }
     }
@@ -28,7 +28,11 @@ public class Chrono : MonoBehaviour
 
     private IEnumerator MainRoutine(float refresh)
     {
-        chronoUpdate.Invoke();
-        yield return new WaitForSeconds(refresh);
+        while (true)
+        {
+            chronoUpdate.Invoke();
+            yield return new WaitForSeconds(refresh);
+            print("coroutine is alive :o");
+        }
     }
 }

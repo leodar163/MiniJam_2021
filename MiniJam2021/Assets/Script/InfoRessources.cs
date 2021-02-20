@@ -11,7 +11,7 @@ public class InfoRessources : MonoBehaviour
     {
         get
         {
-            if (cela) cela = FindObjectOfType<InfoRessources>();
+            if (!cela) cela = FindObjectOfType<InfoRessources>();
             return cela;
         }
     }
@@ -47,9 +47,11 @@ public class InfoRessources : MonoBehaviour
     public float minRessource = 0f;
     public float maxBaril = 6f;
     public float uraniumRatio = 0.1f;
+    public float temperatureRatio = 1f;
 
     [Header("Events")]
     public UnityEvent barilDepleted = new UnityEvent();
+    public UnityEvent temperatureRise = new UnityEvent();
 
     // Start is called before the first frame update
     void Start()
@@ -61,6 +63,11 @@ public class InfoRessources : MonoBehaviour
         {
             if (dechet < maxBaril) dechet += 1;
             else print("GAME OVER - trop de déchets");
+        });
+        temperatureRise.AddListener(() =>
+        {
+            if (temperature < maxRessource) temperature += temperatureRatio * elecProd;
+            else print("GAME OVER - surchauffe");
         });
     }
 
@@ -79,5 +86,6 @@ public class InfoRessources : MonoBehaviour
         {
             barilDepleted.Invoke();
         }
+        temperatureRise.Invoke();
     }
 }

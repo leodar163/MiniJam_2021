@@ -280,7 +280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc9db7c49f77484aa0da790119121b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  truc: 1
 --- !u!4 &1749489282
 Transform:
   m_ObjectHideFlags: 0
@@ -325,17 +324,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dechet: 0
-  uranium: 0
+  uranium: 5.99
   temperature: 0
-  elecProd: 0
+  elecProd: 31.2
   elecExpect: 0
   flotte: 0
   flotteRatio: 0.5
   maxRessource: 100
   minRessource: 0
   maxBaril: 6
-  uraniumRatio: 0.1
+  uraniumRatio: 0.001
+  temperatureRatio: 0.01
   barilDepleted:
+    m_PersistentCalls:
+      m_Calls: []
+  temperatureRise:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1818926378
