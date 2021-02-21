@@ -46,7 +46,7 @@ public class Score : MonoBehaviour
 
             score += reward;
 
-            scoreAdding.text = reward > 0 ? "+" + reward : "-" + reward;
+            scoreAdding.text = reward >= 0 ? "+" + reward : "-" + reward;
             totalScore.text = "" + score;
         }
     }
