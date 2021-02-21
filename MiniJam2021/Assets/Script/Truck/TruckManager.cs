@@ -47,12 +47,15 @@ public class TruckManager : MonoBehaviour
         currentTruck = truckToCall;
         truckstate = TruckState.called;
         yield return new WaitForSeconds(delayGate1);
+
         if(currentTruck is UraniumTruck) uraniumTruckAnimator.SetInteger("state", 1);
         else trashTruckAnimator.SetInteger("state", 1);
+
         yield return new WaitForSeconds(delayGate2);
+
         //isTruckWaiting = true;
         truckstate = TruckState.waiting;
-        truckToCall.CallToGate();
+        truckToCall.CallAtGate();
         if (currentTruck is UraniumTruck) uraniumTruckAnimator.SetInteger("state", 2);
         else trashTruckAnimator.SetInteger("state", 2);
     }
@@ -63,7 +66,6 @@ public class TruckManager : MonoBehaviour
         gateAnimator.SetBool("Opening", true);
         if (currentTruck is UraniumTruck) uraniumTruckAnimator.SetInteger("state", 3);
         else trashTruckAnimator.SetInteger("state", 3);
-        if (currentTruck && truckstate == TruckState.waiting) currentTruck.GoToParking();
         StartCoroutine(GateDelay());
     }
 

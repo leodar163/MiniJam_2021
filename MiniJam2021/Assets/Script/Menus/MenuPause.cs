@@ -15,6 +15,14 @@ public class MenuPause : Menu
         }
     }
 
+    public bool isPaused
+    {
+        get
+        {
+            return isActive;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

@@ -17,11 +17,6 @@ public class TrashTruck : Truck
 
     }
 
-    public override void GoToParking()
-    {
-        base.GoToParking();
-    }
-
     public override void LoadStuff()
     {
         InfoRessources.Instance.RemoveTrash(barrelsToLoad);

@@ -29,7 +29,10 @@ public class Controls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckControls();
+        if(!MenuPause.Instance.isPaused)
+        {
+            CheckControls();
+        }
     }
 
     private void CheckControls()
@@ -90,7 +93,8 @@ public class Controls : MonoBehaviour
             if(InfoRessources.Instance.elecProd < 100) Audios.Instance.PlayAumgente();
             else Audios.Instance.PlayErreur();
 
-            InfoRessources.Instance.MonterPuissance();
+            if(InfoRessources.Instance.uranium > 0) InfoRessources.Instance.MonterPuissance();
+            else Audios.Instance.PlayErreur();
         }
 
         if (Input.GetKeyUp(decreasePower))

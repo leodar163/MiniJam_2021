@@ -5,6 +5,18 @@ using UnityEngine.UI;
 using TMPro;
 public class Score : MonoBehaviour
 {
+
+    static private Score cela;
+
+    static public Score Instance
+    {
+        get
+        {
+            if (!cela) cela = FindObjectOfType<Score>();
+            return cela;
+        }
+    }
+
     [Header("Refs Text")]
     [SerializeField] private TextMeshProUGUI scoreAdding;
     [SerializeField] private TextMeshProUGUI totalScore;

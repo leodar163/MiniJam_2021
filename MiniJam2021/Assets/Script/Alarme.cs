@@ -25,7 +25,7 @@ public class Alarme : MonoBehaviour
         }
         else
         {
-            turnOnOn = () => { if (TruckManager.Instance.truckstate == TruckManager.TruckState.called || TruckManager.Instance.truckstate == TruckManager.TruckState.waiting) return true; else return false; };
+            turnOnOn = () => { if (TruckManager.Instance.truckstate == TruckManager.TruckState.called) return true; else return false; };
         }
 
         Chrono.Instance.chronoUpdate.AddListener(() =>

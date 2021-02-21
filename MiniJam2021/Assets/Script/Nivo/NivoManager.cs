@@ -42,6 +42,11 @@ public class NivoManager : MonoBehaviour
 
     private void CheckEventNivo()
     {
+        if(nivoToPlay.dayAmount == Calendar.Instance.minute / 60 / 24)
+        {
+            MenuEnd.Instance.EndGame();
+            return;
+        }
 
         if(!isNextEventDefined)
         {
