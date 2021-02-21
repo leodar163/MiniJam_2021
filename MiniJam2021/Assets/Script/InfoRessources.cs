@@ -63,6 +63,8 @@ public class InfoRessources : MonoBehaviour
     public UnityEvent barilDepleted = new UnityEvent();
     public UnityEvent temperatureRise = new UnityEvent();
 
+    [HideInInspector] bool gameOver = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,12 +74,20 @@ public class InfoRessources : MonoBehaviour
         barilDepleted.AddListener(() =>
         {
             if (dechet < maxBaril) dechet += 1;
-            else print("GAME OVER - trop de déchets");
+            else
+            {
+                GameOver();
+                print("GAME OVER - trop de déchets");
+            }
         });
         temperatureRise.AddListener(() =>
         {
             if (temperature < maxRessource) temperature += temperatureRatio * elecProd;
-            else print("GAME OVER - surchauffe");
+            else
+            {
+                GameOver();
+                print("GAME OVER - surchauffe");
+            }
         });
     }
 
@@ -199,5 +209,15 @@ public class InfoRessources : MonoBehaviour
     {
         if (flotte >= minRessource && flotte <= maxRessource)
             ScalingLake.rectTransform.localScale = new Vector3(flotte/100,flotte/100,1);
+    }
+
+    public void GameOver()
+    {
+        if(!gameOver)
+        {
+            gameOver = true;
+            Time.timeScale = 0;
+            Audios.Instance.PlayGameOver();
+        }        
     }
 }

@@ -21,7 +21,7 @@ public class Alarme : MonoBehaviour
         }
         else if (alarmeType == AlarmeType.temperature)
         {
-            turnOnOn = () => { if (InfoRessources.Instance.temperature >= InfoRessources.Instance.maxRessource - 10) return true; else return false; };
+            turnOnOn = () => { if (InfoRessources.Instance.temperature >= InfoRessources.Instance.maxRessource - 15) return true; else return false; };
         }
         else
         {
@@ -48,7 +48,15 @@ public class Alarme : MonoBehaviour
 
             if(isTurnedOn)
             {
+                if (alarmeType == AlarmeType.dechet) Audios.Instance.PlayAlarmeTrash();
+                else if (alarmeType == AlarmeType.temperature) Audios.Instance.PlayAlarmeTemperature();
+
                 StartCoroutine(BlinkAlarme());
+            }
+            else
+            {
+                if (alarmeType == AlarmeType.dechet) Audios.Instance.StopAlarmeTrash();
+                else if (alarmeType == AlarmeType.temperature) Audios.Instance.StopAlarmeTemperature();
             }
         }
     }

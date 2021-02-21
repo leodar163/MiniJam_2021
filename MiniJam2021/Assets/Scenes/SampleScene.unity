@@ -4461,6 +4461,75 @@ MonoBehaviour:
   txtMaxDay: {fileID: 1503762903}
   txtHour: {fileID: 848167618}
   txtMinute: {fileID: 491752421}
+--- !u!1001 &1484521794
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4809082974622573920, guid: 478b61cf6dadaf24e841f7ad93cbd26b,
+        type: 3}
+      propertyPath: m_Name
+      value: Audios
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809082974622573922, guid: 478b61cf6dadaf24e841f7ad93cbd26b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809082974622573922, guid: 478b61cf6dadaf24e841f7ad93cbd26b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809082974622573922, guid: 478b61cf6dadaf24e841f7ad93cbd26b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809082974622573922, guid: 478b61cf6dadaf24e841f7ad93cbd26b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809082974622573922, guid: 478b61cf6dadaf24e841f7ad93cbd26b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809082974622573922, guid: 478b61cf6dadaf24e841f7ad93cbd26b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809082974622573922, guid: 478b61cf6dadaf24e841f7ad93cbd26b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809082974622573922, guid: 478b61cf6dadaf24e841f7ad93cbd26b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809082974622573922, guid: 478b61cf6dadaf24e841f7ad93cbd26b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809082974622573922, guid: 478b61cf6dadaf24e841f7ad93cbd26b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809082974622573922, guid: 478b61cf6dadaf24e841f7ad93cbd26b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 478b61cf6dadaf24e841f7ad93cbd26b, type: 3}
 --- !u!1 &1484967899
 GameObject:
   m_ObjectHideFlags: 0
@@ -6533,6 +6602,7 @@ MonoBehaviour:
   appelerCamionUranium: 112
   appelerCamionPoubelle: 98
   getFreshWater: 264
+  getFreshWater2: 0
   increasePower: 97
   decreasePower: 120
   isPaused: 0

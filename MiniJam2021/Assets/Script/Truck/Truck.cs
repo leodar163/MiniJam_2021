@@ -25,7 +25,8 @@ public abstract class Truck : MonoBehaviour
 
     public virtual void CallToGate()
     {
-        print(name + " est appelé");
+        Audios.Instance.PlayKlaxon();
+        print(name + " est Arrivé");
     }
 
     public virtual void GoToParking()

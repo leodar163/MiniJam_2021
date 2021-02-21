@@ -47,6 +47,11 @@ public class Audios : MonoBehaviour
         
     }
 
+    public void PlayErreur()
+    {
+        aSUI.clip = erreurUI;
+        aSUI.Play();
+    }
     public void PlayKlaxon()
     {
         aSTruck.clip = Klaxon;
@@ -62,11 +67,21 @@ public class Audios : MonoBehaviour
         aSAlarme2.clip = alarme2;
         aSAlarme2.Play();
     }
+    public void StopAlarmeTrash()
+    {
+        aSAlarme2.Stop();
+    }
+
     public void PlayAlarmeTemperature()
     {
         aSAlarme3.clip = alarme3;
         aSAlarme3.Play();
     }
+    public void StopAlarmeTemperature()
+    {
+        aSAlarme3.Stop();
+    }
+
     public void PlayAumgente()
     {
         aSUI.clip = augmenteUI;
@@ -79,6 +94,7 @@ public class Audios : MonoBehaviour
     }
     public void PlayGameOver()
     {
+        aSAmbiance.loop = true;
         aSAmbiance.clip = gameOver;
         aSAmbiance.Play();
     }
