@@ -33,7 +33,7 @@ public abstract class Truck : MonoBehaviour
     public virtual void GoToParking()
     {
         print(name + " va au parking : ");
-        LoadStuff();
+        //LoadStuff();
     }
 
     public virtual void LoadStuff()

@@ -18,11 +18,11 @@ public class TruckManager : MonoBehaviour
 
     [SerializeField] private UraniumTruck uranTruck;
     [SerializeField] private TrashTruck trashTruck;
+    [SerializeField] private Animator gateAnimator;
+    [SerializeField] private Animator trashTruckAnimator;
+    [SerializeField] private Animator uraniumTruckAnimator;
 
     private Truck currentTruck;
-
-    public bool isTruckCalled = false;
-    public bool isTruckWaiting = false;
 
     public enum TruckState {notHere, called, waiting, atParking};
 
@@ -47,17 +47,30 @@ public class TruckManager : MonoBehaviour
         currentTruck = truckToCall;
         truckstate = TruckState.called;
         yield return new WaitForSeconds(delayGate1);
-        currentTruck.enabled=true;
+        if(currentTruck is UraniumTruck) uraniumTruckAnimator.SetInteger("state", 1);
+        else trashTruckAnimator.SetInteger("state", 1);
         yield return new WaitForSeconds(delayGate2);
         //isTruckWaiting = true;
         truckstate = TruckState.waiting;
         truckToCall.CallToGate();
+        if (currentTruck is UraniumTruck) uraniumTruckAnimator.SetInteger("state", 2);
+        else trashTruckAnimator.SetInteger("state", 2);
     }
        
 
     public void SendTruckToParking()
     {
-        if(currentTruck && truckstate == TruckState.waiting) currentTruck.GoToParking();
+        gateAnimator.SetBool("Opening", true);
+        if (currentTruck is UraniumTruck) uraniumTruckAnimator.SetInteger("state", 3);
+        else trashTruckAnimator.SetInteger("state", 3);
+        if (currentTruck && truckstate == TruckState.waiting) currentTruck.GoToParking();
+        StartCoroutine(GateDelay());
+    }
+
+    private IEnumerator GateDelay()
+    {
+        yield return new WaitForSeconds(delayGate2);
+        gateAnimator.SetBool("Opening", false);
     }
 
     // Start is called before the first frame update
