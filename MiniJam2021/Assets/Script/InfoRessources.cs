@@ -51,6 +51,8 @@ public class InfoRessources : MonoBehaviour
     public float seuilFlotte = 5f;
     public float ratioFlotteTemperature = 1f;
     public float powerDifference = 5f;
+    [SerializeField] private List<Sprite> listSpritesUranium = new List<Sprite>();
+    [SerializeField] private List<Sprite> listSpritesTrash = new List<Sprite>();
 
     [Header("Events")]
     public UnityEvent barilDepleted = new UnityEvent();
