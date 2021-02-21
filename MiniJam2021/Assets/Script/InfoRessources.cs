@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using DG.Tweening;
 
 public class InfoRessources : MonoBehaviour
 {
@@ -157,19 +156,5 @@ public class InfoRessources : MonoBehaviour
     public void BaisserPuissance()
     {
         LessPower(powerDifference);
-    }
-
-    public void ApplieEventNivo(Nivo.EventNivo eventNivo)
-    {
-        DOTween.To(() => elecExpect, x => elecExpect = x, eventNivo.elecExpectOfEvent, 1.5f);
-    }
-    public void InitialiseRessources(Nivo nivo)
-    {
-        elecProd = nivo.initialElecProd;
-        elecExpect = nivo.initialElecExpect;
-        flotte = nivo.initialFlotte;
-        temperature = nivo.initiaTemperature;
-        uranium = nivo.initialUranium;
-        dechet = nivo.initialDechet;
     }
 }

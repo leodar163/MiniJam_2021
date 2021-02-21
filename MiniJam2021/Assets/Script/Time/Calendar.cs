@@ -1,45 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 
 public class Calendar : MonoBehaviour
 {
-
-    private static Calendar cela;
-
-    public static Calendar Instance
-    {
-        get
-        {
-            if (!cela) cela = FindObjectOfType<Calendar>();
-            return cela;
-        }
-    }
-
-    public UnityEvent eventFinNivo = new UnityEvent();
-    
-
-    public int minute = 0;
-    public int maxDay = 5;
+    private int hour = 0;
+    private int minute = 0;
+    private int day = 0;
 
     [SerializeField] private TextMeshProUGUI txtDay;
-    [SerializeField] private TextMeshProUGUI txtMaxDay;
     [SerializeField] private TextMeshProUGUI txtHour;
     [SerializeField] private TextMeshProUGUI txtMinute;
 
 
     private void Start()
     {
-
-    }
-
-    public void Init(int maximuOfDay)
-    {
-        maxDay = maximuOfDay;
-        txtMaxDay.text = "/" + maxDay;
         StartCoroutine(TikTak());
     }
 
@@ -47,11 +24,6 @@ public class Calendar : MonoBehaviour
     {
         while(true)
         {
-            if(minute / 60 / 24 >= maxDay)
-            {
-                eventFinNivo.Invoke();
-                break;
-            }
             yield return new WaitForSeconds(1);
             minute += 30;
 
