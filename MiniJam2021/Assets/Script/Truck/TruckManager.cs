@@ -29,6 +29,8 @@ public class TruckManager : MonoBehaviour
     public TruckState truckstate = TruckState.notHere;
 
     [SerializeField] private float waitDelay = 5f;
+    [SerializeField] private float delayGate1 = 2f;
+    [SerializeField] private float delayGate2 = 3f;
 
     public void orderUraniumTruck()
     {
@@ -44,7 +46,9 @@ public class TruckManager : MonoBehaviour
     {
         currentTruck = truckToCall;
         truckstate = TruckState.called;
-        yield return new WaitForSeconds(waitDelay);
+        yield return new WaitForSeconds(delayGate1);
+        currentTruck.enabled=true;
+        yield return new WaitForSeconds(delayGate2);
         //isTruckWaiting = true;
         truckstate = TruckState.waiting;
         truckToCall.CallToGate();

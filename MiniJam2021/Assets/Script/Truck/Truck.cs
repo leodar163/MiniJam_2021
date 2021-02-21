@@ -6,6 +6,7 @@ public abstract class Truck : MonoBehaviour
 {
     [SerializeField] protected TruckManager truckManager;
     [SerializeField] protected int barrelsToLoad = 1;
+    [SerializeField] protected Animator animator;
 
     // Start is called before the first frame update
     protected virtual void Start()

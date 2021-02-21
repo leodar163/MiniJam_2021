@@ -2989,6 +2989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   truckManager: {fileID: 2147027548}
   barrelsToLoad: 1
+  animator: {fileID: 0}
 --- !u!4 &973781869
 Transform:
   m_ObjectHideFlags: 0
@@ -3560,7 +3561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1333495892
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3650,6 +3651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   truckManager: {fileID: 0}
   barrelsToLoad: 1
+  animator: {fileID: 0}
 --- !u!1 &1349661523
 GameObject:
   m_ObjectHideFlags: 0
@@ -4699,6 +4701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   truckManager: {fileID: 2147027548}
   barrelsToLoad: 1
+  animator: {fileID: 0}
 --- !u!4 &1636367431
 Transform:
   m_ObjectHideFlags: 0
@@ -6140,7 +6143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2048758391
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6230,6 +6233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   truckManager: {fileID: 0}
   barrelsToLoad: 1
+  animator: {fileID: 0}
 --- !u!1 &2076235192
 GameObject:
   m_ObjectHideFlags: 0
@@ -6429,6 +6433,8 @@ MonoBehaviour:
   isTruckWaiting: 0
   truckstate: 0
   waitDelay: 5
+  delayGate1: 2
+  delayGate2: 3
 --- !u!4 &2147027549
 Transform:
   m_ObjectHideFlags: 0
