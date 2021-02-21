@@ -15,7 +15,6 @@ public class Score : MonoBehaviour
     [SerializeField] private GameObject badBlinker;
 
 
-
     public int score = 0;
     [SerializeField] private float refreshRate = 0;
     [Header("Threshold")]
@@ -32,7 +31,7 @@ public class Score : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
         TurnOffBLinkers();  
         StartCoroutine(Scoring());
     }
