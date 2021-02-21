@@ -5,6 +5,17 @@ using UnityEngine.Events;
 
 public class TruckManager : MonoBehaviour
 {
+    static private TruckManager cela;
+
+    static public TruckManager Instance
+    {
+        get
+        {
+            if (!cela) cela = FindObjectOfType<TruckManager>();
+            return cela;
+        }
+    }
+
     [SerializeField] private UraniumTruck uranTruck;
     [SerializeField] private TrashTruck trashTruck;
 

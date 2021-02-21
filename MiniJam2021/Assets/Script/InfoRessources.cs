@@ -96,7 +96,9 @@ public class InfoRessources : MonoBehaviour
             usedUranium -= 1;
             barilDepleted.Invoke();
         }
-        
+
+        if (uranium == 0) elecProd = elecProd - 0.5f <= 0 ? 0 : elecProd - 0.5f;
+
         temperatureRise.Invoke();
     }
 

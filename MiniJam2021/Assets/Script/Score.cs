@@ -5,8 +5,16 @@ using UnityEngine.UI;
 using TMPro;
 public class Score : MonoBehaviour
 {
+    [Header("Refs Text")]
     [SerializeField] private TextMeshProUGUI scoreAdding;
     [SerializeField] private TextMeshProUGUI totalScore;
+    [Header("Refs blinker")]
+    [SerializeField] private GameObject angryBlinker;
+    [SerializeField] private GameObject goodBlinker;
+    [SerializeField] private GameObject okBlinker;
+    [SerializeField] private GameObject badBlinker;
+
+
 
     public int score = 0;
     [SerializeField] private float refreshRate = 0;
@@ -21,9 +29,11 @@ public class Score : MonoBehaviour
     [SerializeField] private int rewardGood = 100;
     [SerializeField] private int rewardAngry = 10;
 
+
     // Start is called before the first frame update
     void Start()
     {
+        TurnOffBLinkers();  
         StartCoroutine(Scoring());
     }
 
@@ -55,10 +65,33 @@ public class Score : MonoBehaviour
     {
         float delta = InfoRessources.Instance.elecProd - InfoRessources.Instance.elecExpect;
 
-        if (delta >= deltaAngry) return rewardAngry;
-        else if (delta >= deltaGood) return rewardGood;
-        else if (delta >= deltaOk) return rewardOk;
+        TurnOffBLinkers();
 
+        if (delta >= deltaAngry)
+        {
+            angryBlinker.SetActive(true);
+            return rewardAngry;
+        }
+        else if (delta >= deltaGood)
+        {
+            goodBlinker.SetActive(true);
+            return rewardGood;
+        }
+        else if (delta >= deltaOk)
+        {
+            okBlinker.SetActive(true);
+            return rewardOk;
+        }
+
+        badBlinker.SetActive(true);
         return rewardBad;
+    }
+
+    private void TurnOffBLinkers()
+    {
+        angryBlinker.SetActive(false);
+        goodBlinker.SetActive(false);
+        okBlinker.SetActive(false);
+        badBlinker.SetActive(false);
     }
 }
