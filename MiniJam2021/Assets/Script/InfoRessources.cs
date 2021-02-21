@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class InfoRessources : MonoBehaviour
 {
@@ -54,6 +55,9 @@ public class InfoRessources : MonoBehaviour
     public float powerDifference = 5f;
     [SerializeField] private List<Sprite> listSpritesUranium = new List<Sprite>();
     [SerializeField] private List<Sprite> listSpritesTrash = new List<Sprite>();
+    [SerializeField] private Image DisplayedUraniumSprite;
+    [SerializeField] private Image DisplayedTrashSprite;
+    [SerializeField] private Image ScalingLake;
 
     [Header("Events")]
     public UnityEvent barilDepleted = new UnityEvent();
@@ -103,6 +107,12 @@ public class InfoRessources : MonoBehaviour
         if (uranium == 0) elecProd = elecProd - 0.5f <= 0 ? 0 : elecProd - 0.5f;
 
         temperatureRise.Invoke();
+
+        ChangeUraniumToDisplay();
+
+        ChangeTrashToDisplay();
+
+        ChangeLakeScale();
     }
 
     public void AddUranium(float amount)
@@ -171,5 +181,23 @@ public class InfoRessources : MonoBehaviour
         temperature = nivo.initiaTemperature;
         uranium = nivo.initialUranium;
         dechet = nivo.initialDechet;
+    }
+
+    private void ChangeUraniumToDisplay()
+    {
+        if (uranium >= minRessource && uranium <= maxBaril)
+            DisplayedUraniumSprite.sprite = listSpritesUranium[Mathf.CeilToInt(uranium)];
+    }
+
+    private void ChangeTrashToDisplay()
+    {
+        if (dechet >= minRessource && dechet <= maxBaril)
+            DisplayedTrashSprite.sprite = listSpritesTrash[Mathf.CeilToInt(dechet)];
+    }
+
+    private void ChangeLakeScale()
+    {
+        if (flotte >= minRessource && flotte <= maxRessource)
+            ScalingLake.rectTransform.localScale = new Vector3(flotte/100,flotte/100,1);
     }
 }
