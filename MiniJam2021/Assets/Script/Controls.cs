@@ -36,17 +36,7 @@ public class Controls : MonoBehaviour
     {
         if(Input.GetKeyUp(pauseCafe))
         {
-            print("ouichef, isPaused = " + isPaused);
-            if (isPaused) 
-            {
-                Audios.Instance.PlayAumgente();
-                Time.timeScale = 1; isPaused = false;
-            }
-            else 
-            {
-                Audios.Instance.PlayDiminue();
-                Time.timeScale = 0; isPaused = true;
-            }
+            MenuPause.Instance.SetPause();
         }
 
         if (Input.GetKeyUp(appelerCamionUranium))

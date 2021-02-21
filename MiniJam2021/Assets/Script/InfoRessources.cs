@@ -76,8 +76,7 @@ public class InfoRessources : MonoBehaviour
             if (dechet < maxBaril) dechet += 1;
             else
             {
-                GameOver();
-                print("GAME OVER - trop de déchets");
+                GameOver.Instance.FireGameOver("GAME OVER\nToo mmuch trash\nthe country became a nuclear desert");
             }
         });
         temperatureRise.AddListener(() =>
@@ -85,8 +84,7 @@ public class InfoRessources : MonoBehaviour
             if (temperature < maxRessource) temperature += temperatureRatio * elecProd;
             else
             {
-                GameOver();
-                print("GAME OVER - surchauffe");
+                GameOver.Instance.FireGameOver("GAME OVER\nThe reactor overheat\nthe country became a nuclear desert");
             }
         });
     }
@@ -209,15 +207,5 @@ public class InfoRessources : MonoBehaviour
     {
         if (flotte >= minRessource && flotte <= maxRessource)
             ScalingLake.rectTransform.localScale = new Vector3(flotte/100,flotte/100,1);
-    }
-
-    public void GameOver()
-    {
-        if(!gameOver)
-        {
-            gameOver = true;
-            Time.timeScale = 0;
-            Audios.Instance.PlayGameOver();
-        }        
     }
 }
